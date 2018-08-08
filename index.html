@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <title>pop up tool tip using css animations</title>
+
+      <style>
+main {
+   width: 100%; 
+   max-width: 800px; 
+   padding: 5px; 
+   margin: auto;
+   background: #fad;
+}
+
+a[data-linkTT01] {
+   color: blue;
+      background: green;
+   position: relative; 
+   z-index: 10;
+   left: 0; top: 0;
+}
+a[data-linkTT01]::after{
+   content: attr(data-linkTT01);
+   display: block;
+   position: absolute;
+   z-index: 10;
+      left: 0;
+   bottom: 0%;
+   font-size: 0.8em;
+   padding: 0.5em 1.2em;
+   border-radius: 5px;
+   background: #f03;
+   color: #fff;
+   white-space: nowrap;
+
+   transform: scale(0);
+   transition: 
+      transform ease-out 150ms,
+      bottom ease-out 150ms;
+
+}
+a[data-linkTT01]:hover::after {
+   transform: scale(1);
+   bottom: 100%;
+
+}
+
+      </style>
+   </head>
+   <body>
+
+      <main>
+      <h1>pop up tool tip using css animations</h1>
+
+      <p>A sample paragraph with lorem ipsum.... and now a link that will have a pop up tool tip <a href="#" data-linkTT01="tool tip example">link test example </a> and the paragraph continues.</p>
+      
+      </main>
+
+
+   </body>
+</html>
